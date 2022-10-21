@@ -1,0 +1,103 @@
+<!-- <div class="container">
+  <label for="th">Thème:</label><select name="th"
+    id="th" #th
+    (change)='setTheme(th.value)'>
+    <option value="Pink">Pink</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+  </select>
+</div>
+
+<div class="container"
+  [ngClass]="{'Pink': P, 'Blue': B , 'Green': G }">
+  <ul *ngFor="let student of Students">
+    <li>{{student.name| uppercase}} {{student.email|slice:0:6}}</li>
+  </ul>
+</div>
+<app-header></app-header>
+<section>
+  <router-outlet></router-outlet>
+</section>
+<app-footer></app-footer>
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ProjetProduit</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+      <div class="container" id="body">
+        <!---start navbar--->
+        <app-header></app-header>
+        <br>
+
+        <!---end navbar--->
+        <!---start slide--->
+      
+        <!---start usersList section--->
+        <!-- <div class="row">
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img src="../assets/images/admin.png" class="card-img-top"
+                alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Admin Account</h5>
+                <p class="card-text">An admin account has privileges to manage
+                  services for other people in the App.</p>
+                <a href="#" class="btn btn-primary">show all</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img src="../assets/images/customer.png" class="card-img-top"
+                alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Customer Account</h5>
+                <p class="card-text">A Customer Account is a centralized place
+                  to manage all billing information about customers</p>
+                <a href="#" class="btn btn-primary">show all</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img src="../assets/images/golden.png" class="card-img-top"
+                alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Golden Account</h5>
+                <p class="card-text">All Golden members benefit from the
+                  features included with the Cambrian Golden Account </p>
+                <a href="#" class="btn btn-primary">show all</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img src="../assets/images/blocked.png" class="card-img-top"
+                alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Blocked Account</h5>
+                <p class="card-text">an account that does not allow for
+                  unlimited but instead has certain restrictions</p>
+                <a href="#" class="btn btn-primary">show all</a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!---end usersList section--->
+      </div>
+
+      <router-outlet></router-outlet>
+      <!-----Footer Section------>
+      <app-footer></app-footer>
+      <!-----End Footer Section------>
+    </div>
+  </body>
+</html>
