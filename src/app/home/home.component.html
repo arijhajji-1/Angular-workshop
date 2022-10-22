@@ -11,3 +11,17 @@
   </div>
 </div>
 <!---end slide--->
+
+<form #myForm="ngForm" name="myForm" novalidate>
+
+  <label for="">Name</label> <br>
+  <input type="email" name="fn" id="fn" #fn="ngModel" ngModel required
+    minlength="5">
+  <small *ngIf="fn.invalid && fn.touched && fn.errors?.['required']">Name is
+    Required</small>
+  <small *ngIf="fn.invalid && fn.touched && fn.errors?.['minlength']">Name needs
+    5 caracters</small>
+
+
+  <button type="submit">Save</button>
+</form>
