@@ -1,0 +1,71 @@
+<form #myForm="ngForm" name="myForm" novalidate >
+
+  <div class="form-group">
+      <div >Id Produit</div>
+      <input name="id" id="id" #id="ngModel"  ngModel required class="form-control">  
+      <div class="alert alert-danger" role="alert" *ngIf="id.invalid && id.touched && id.errors?.['required']" style="color : red ; ">Id is required. </div>
+  </div>
+
+  <div class="form-group">
+      <div>Code</div>
+      <input name="code" id="code" ngModel #code="ngModel"   required pattern="[a-zA-Z-0-9]{8}" class="form-control"> 
+      <div class="alert alert-danger" role="alert" *ngIf="code.invalid && code.touched && code.errors?.['required']" style="color : red ; ">Code is required. </div>
+      <div class="alert alert-danger" role="alert" *ngIf="code.invalid && code.touched && code.errors?.['pattern']" style="color : red ; ">Code's length must be 8. </div>
+  </div>
+
+  <div class="form-group">
+      <div>Libelle</div>
+      <input name="libelle" id="libelle" ngModel #libelle="ngModel"  required minlength="3" class="form-control"> 
+      <div class="alert alert-danger" role="alert" *ngIf="libelle.invalid && libelle.touched && libelle.errors?.['required']" style="color : red ; ">Libelle is required. </div>
+      <div class="alert alert-danger" role="alert" *ngIf="libelle.invalid && libelle.touched && libelle.errors?.['minlength']" style="color : red ; ">Libelle min length is 3. </div>
+  </div>
+
+  <div class="form-group">
+      <div>Prix Unitaire</div>
+      <input name="prix" id="prix" ngModel #prix="ngModel"   required pattern="[1-9][0-9]*" class="form-control"> 
+      <div class="alert alert-danger" role="alert" *ngIf="prix.invalid && prix.touched && prix.errors?.['required']" style="color : red ; ">Prix is required. </div>
+      <div class="alert alert-danger" role="alert" *ngIf="prix.invalid && prix.touched && prix.errors?.['pattern']" style="color : red ; ">Prix must be a number. </div>
+  </div>
+
+
+  <div *ngIf="id.valid && code.valid && libelle.valid && prix.valid">
+      <div class="form-group">
+          <div>Id détails produit</div>
+          <input name="detail" id="detail" ngModel #detail="ngModel" required class="form-control"> 
+          <div class="alert alert-danger" role="alert" *ngIf="detail.invalid && detail.touched && detail.errors?.['required']" style="color : red ; ">Détails is required. </div>
+      </div>
+
+      <div class="form-group">
+          <div>Date Création</div>
+          <input name="dateC" id="dateC" ngModel #dateC="ngModel" required class="form-control"> 
+          <div class="alert alert-danger" role="alert" *ngIf="dateC.invalid && dateC.touched && dateC.errors?.['required']" style="color : red ; ">Date Création is required. </div>
+      </div>
+
+
+      <div *ngIf="dateC.valid  ">  
+          <div class="form-group">
+              <div>Date dernière modification</div>
+              <input name="dateM" id="dateM" ngModel #dateM="ngModel" required class="form-control"> 
+              <div class="alert alert-danger" role="alert" *ngIf="dateM.invalid && dateM.touched && dateM.errors?.['required']" style="color : red ; ">Date dernière modification is
+                  required. </div>
+          </div>
+      </div>
+      
+      
+      <div>Catégorie Produit</div>
+      <select class="form-control">
+          <option>Electromenager</option>
+          <option>Alimentaire</option>
+          <option>Quincaillerie</option>
+      </select>
+      <br>
+      <br>
+      <div *ngIf="myForm.valid  ">
+          <button type="submit">Suivant</button>
+      </div>
+  </div>
+
+  
+    
+  
+</form>

@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent
+  
   ],
   imports: [
     BrowserModule,
