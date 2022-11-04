@@ -1,0 +1,64 @@
+<!--
+  Template Driven Form
+
+  <form action="" #f="ngForm" (ngSubmit)="Save(f)">
+
+  <input type="text" name="champ1" ngModel #champ1="ngModel" required>
+  <small *ngIf="champ1.invalid && champ1.touched">Error message</small>
+  <button type="submit">Save</button>
+</form> -->
+
+<form [formGroup]="reactiveForm" (ngSubmit)="Save()">
+  <div class="form-group">
+    <label for="fn">First Name</label>
+    <input type="text" class="form-control" id="fn" formControlName="firstName">
+    <small style="color: red;"
+      *ngIf="firstName?.errors?.['required'] &&
+      firstName?.touched">
+      First is required
+    </small>
+    <small style="color: red;"
+      *ngIf="firstName?.errors?.['minlength'] &&
+      firstName?.touched">
+      FirstName at least 3 caracters
+    </small>
+  </div>
+
+
+  <div class="form-group">
+    <label for="fn">Last Name</label>
+    <input type="text" class="form-control" id="ln" formControlName="lastName">
+  </div>
+
+
+  <div formGroupName="credentials">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1"
+        formControlName="email">
+      <small *ngIf="reactiveForm.get('credentials.email')?.invalid ">Respect
+        email Format!.</small>
+      <!-- or this syntaxe works too <small *ngIf="reactiveForm.get('credentials')?.get('email')?.invalid ">Respect -->
+      <!-- email Format!.</small>  -->
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1"
+        formControlName="password"
+        placeholder="Password">
+    </div>
+
+  </div>
+
+
+  <div class="form-group" formArrayName="skills">
+    <label for="exampleCheck1">Skills</label>
+    <div *ngFor="let skill of skills.controls, let i=index">
+      <input type="text" id="exampleCheck1" [formControlName]="i">
+    </div>
+
+    <button (click)="addSkills()">+</button>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

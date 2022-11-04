@@ -9,7 +9,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { UserServiceService } from './Core/Services/user-service.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent
-  
   ],
   imports: [
     BrowserModule,
